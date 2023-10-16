@@ -36,9 +36,11 @@ export class WishListComponent implements OnInit {
   removeProductFromWishList(productId:string) {
     this._wishListService.removeProductFromWishList(productId).subscribe({
       next:(res)=>{
+        this._wishListService.numOfWishListItems.next(res.data.length)
         this.wishListProducts = this.wishListProducts.filter(Product=>{
         return productId != Product._id
         })
+
       },
       error: (err)=>{
         console.log(err)
@@ -47,10 +49,11 @@ export class WishListComponent implements OnInit {
   }
 
   addProductToCart(productId:string){
-  this._CartService.addProductToCart(this.productId).subscribe({
+    console.log(productId)
+  this._CartService.addProductToCart(productId).subscribe({
     next: (res)=>{
       console.log(res)
-      // this._CartService.numOfCartItems.next()
+      this._CartService.numOfCartItems.next(res.numOfCartItems)
       this.toastr.success('Product added to Cart', 'Success');
     },
     error: (err)=>{

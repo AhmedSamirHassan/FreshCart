@@ -41,13 +41,13 @@ export class ProductsComponent {
       console.log(res)
       this._cartService.numOfCartItems.next(res.numOfCartItems)
       this.toastr.success('Product added to Cart', 'Success');
-      
+
     })
   }
 
   addProductToWishList(productId: string) {
     this._wishListService.addProductToWishList(productId).subscribe((res)=>{
-      console.log(res)
+      this._wishListService.numOfWishListItems.next(res.data.length)
       this.wishList = res.data
       this.toastr.success('Product added to WishList', 'Success');
     })

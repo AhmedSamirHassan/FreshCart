@@ -27,6 +27,7 @@ const routes: Routes = [
   {path: 'product/:id', canActivate: [AuthGuard], component: ProductDetailsComponent},
   {path: 'checkout/:cartId', canActivate: [AuthGuard], component: CheckoutComponent},
   {path: 'forgetpassword', component: ForgetpasswordComponent},
+  {path: 'allorders', redirectTo: 'home'},
   {path: '**', component: HomeNotFoundComponent}
 ];
 

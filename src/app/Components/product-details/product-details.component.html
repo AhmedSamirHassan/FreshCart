@@ -14,7 +14,7 @@
       <p>{{productDetails.description}}</p>
       <h6>{{productDetails.subcategory.name}}</h6>
       <div class="d-flex justify-content-between align-items-center">
-        <p>{{productDetails.price}}</p>
+        <p>{{productDetails.price | currency: 'EGP '}}</p>
         <p><i class="fa fa-star" style="color: yellow;"></i><span class="px-1">{{productDetails.ratingsAverage}}</span></p>
       </div>
       <div (click)="addProductToCart()" class="btn bg-main w-100">+ add to cart</div>

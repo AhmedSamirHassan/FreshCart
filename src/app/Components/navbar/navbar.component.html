@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-light bg-light position-fixed ">
   <div class="container m-auto d-flex flex-row justify-content-between align-items-center py-3">
     <div class="contaiaAll d-flex flex-row justify-content-around align-items-center">
       <img src="../../../assets/images/freshcart-logo.svg" alt="logoWebsite">
@@ -44,7 +44,11 @@
         <li><i class="fa-brands fa-linkedin"></i></li>
         <li><i class="fa-brands fa-youtube"></i></li>
         <span class="position-relative" *ngIf="isUserLoggedIn" style="cursor: pointer;">
-          <i routerLink="cart" routerLinkActive="active"  class="fas fa-cart-shopping text-main mx-2"></i>
+          <i routerLink="wishlist" routerLinkActive="active"  class="fas fa-heart text-main mx-1"></i>
+          <span class="bg-main text-white badge p-1 position-absolute">{{numOfWishListItems}}</span>
+        </span>
+        <span class="position-relative" *ngIf="isUserLoggedIn" style="cursor: pointer;">
+          <i routerLink="cart" routerLinkActive="active"  class="fas fa-cart-shopping text-main mx-1"></i>
           <span class="bg-main text-white badge p-1 position-absolute">{{numOfCartItems}}</span>
         </span>
         <li *ngIf="!isUserLoggedIn" class="nav-item"><a class="nav-link" routerLink="login" routerLinkActive="active">Login</a></li>

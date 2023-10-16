@@ -1,13 +1,19 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class WishListService {
+  // wishListItems = new BehaviorSubject<{id:string, count:number, price: number}[]| null>(null)
 
-  constructor(private _HttpClient:HttpClient) { }
+  numOfWishListItems: BehaviorSubject<number> = new BehaviorSubject(0)
+  constructor(private _HttpClient:HttpClient) {
+    this.getAllProductsOfWishList().subscribe((res)=>{
+      this.numOfWishListItems.next(res.data.length)
+    })
+  }
 
   addProductToWishList(productId: string) : Observable<any> {
     return this._HttpClient.post('https://ecommerce.routemisr.com/api/v1/wishlist',{productId : productId})

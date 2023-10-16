@@ -16,3 +16,9 @@ ul li {
   bottom: 20px;
   left: 18px;
 }
+
+.navbar {
+  z-index: 500;
+  left: 0;
+  right: 0;
+}
