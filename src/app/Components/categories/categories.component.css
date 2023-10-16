@@ -1,0 +1,16 @@
+.category:hover {
+  box-shadow: 0 0 10px rgba(243, 114, 114, 0.5);
+    transition: box-shadow 0.3s ease;
+}
+
+.category{
+  height: 400px;
+}
+
+img{
+  object-fit:cover;
+  height: 90%;
+  width: 100%;
+}
+
+

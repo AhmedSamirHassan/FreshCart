@@ -1,0 +1,27 @@
+<div class="container justify-content-center align-items-center">
+  <input  type="search" (input)="SearchByText($event)" placeholder="search by name" class="m-auto text-center my-2 w-50 form-control"  >
+</div>
+<div class="row my-3">
+  <div *ngFor="let product of DisplayedProds" class="col-md-3 p-0">
+    <div class="product p-3 overflow-hidden m-2 rounded shadow">
+      <div [routerLink]="'/product/' + product.id">
+        <div class="cursor-pointer">
+          <img class="w-100" [src]="product.imageCover">
+          <h5 class="text-main">{{product.title.split(" ").splice(0,2).join(" ")}}</h5>
+          <h3 class="fw-bolder">{{product.category.name}}</h3>
+          <p>{{product.description.split(" ").splice(0,1).join(" ")}}...</p>
+        </div>
+        <div class="d-flex justify-content-between align-items-center">
+          <p>{{product.price | currency: 'EGP '}}</p>
+          <p><span class="px-1">{{product.ratingsAverage}}</span><i class="fa fa-star" style="color: yellow;"></i></p>
+        </div>
+      </div>
+      <div class="d-flex justify-content-around align-items-center">
+        <button (click)="addProductToCart(product._id)" class="btn bg-main text-white m-auto d-block">Add To Cart</button>
+        <i *ngIf="!wishList.includes(product._id)" (click)='addProductToWishList(product._id)' class="fas fa-heart fa-xl cursor-pointer" style="color: black;"></i>
+        <i *ngIf="wishList.includes(product._id)" (click)='removeProductFromWishList(product._id)' class="fas fa-heart fa-xl cursor-pointer" style="color: red;"></i>
+      </div>
+    </div>
+  </div>
+</div>
+

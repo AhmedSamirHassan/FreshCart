@@ -1,0 +1,29 @@
+<div class="logIn my-3">
+  <h1>Sign In :</h1>
+  <form [formGroup]="logInForm" (ngSubmit)="logIn()">
+
+    <label for="email" class="my-2">Email:</label>
+    <input formControlName="email" id="email" type="email" class="form-control mb-1" placeholder="Enter Your Email" value="">
+    <div *ngIf="logInForm.controls['email'].errors && logInForm.controls['email'].touched" class="alert alert-danger">
+      <p *ngIf="logInForm.controls['email'].getError('required')">Email is required</p>
+      <p *ngIf="logInForm.controls['email'].getError('pattern')">Enter Valid Email</p>
+    </div>
+
+    <label for="Password" class="my-2">Password:</label>
+    <input formControlName="password" id="Password" type="password" class="form-control mb-1" placeholder="Enter Your Password" value="">
+    <div *ngIf="logInForm.controls['password'].errors && logInForm.controls['password'].touched" class="alert alert-danger">
+      <p *ngIf="logInForm.controls['password'].getError('required')">Password is required</p>
+      <p *ngIf="logInForm.controls['password'].getError('pattern')">Minimum eight characters, at least one letter, one number and one special character</p>
+    </div>
+
+    <p *ngIf="errorMessage" class="alert alert-danger text-center">{{errorMessage}}</p>
+    <button [disabled]="!logInForm.valid"  *ngIf="!isloading" class="btn btn-danger text-white ms-auto d-block" type="submit">Sign Up</button>
+    <button *ngIf="isloading" class="btn btn-danger text-white ms-auto d-block" type="button"><i class="fa fa-spinner fa-spin"></i></button>
+  </form>
+
+  <div class="text-center">
+    <p class="text-center">Don’t have an account? <a class="link-primary" routerLink="/register" routerLinkActive="active">Create an account</a></p>
+    <a class="link-primary" routerLink="/forgetpassword" routerLinkActive="active">Forget your Password?</a>
+  </div>
+</div>
+
