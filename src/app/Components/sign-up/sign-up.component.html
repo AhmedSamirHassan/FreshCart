@@ -1,5 +1,5 @@
-<div class="register my-3">
-  <h1>Sign Up :</h1>
+<div class="register my-3 border shadow p-4 rounded">
+  <h1 class="text-center">Sign Up</h1>
   <form [formGroup]="registerForm" (ngSubmit)="register()">
     <label for="name" class="my-2">Name:</label>
     <input formControlName="name" id="name" type="text" class="form-control mb-1" placeholder="Enter Your Name" value="">
@@ -14,7 +14,7 @@
     <input formControlName="email" id="email" type="email" class="form-control mb-1" placeholder="Enter Your Email" value="">
     <div *ngIf="registerForm.controls['email'].errors && registerForm.controls['email'].touched" class="alert alert-danger">
       <p *ngIf="registerForm.controls['email'].getError('required')">Email is required</p>
-      <p *ngIf="registerForm.controls['email'].getError('pattern')">Enter Valid Email</p>
+      <p *ngIf="registerForm.controls['email'].getError('email')">Enter Valid Email</p>
     </div>
 
     <label for="Password" class="my-2">Password:</label>
@@ -37,9 +37,11 @@
       <p *ngIf="registerForm.controls['phone'].getError('required')">Phone is required</p>
       <p *ngIf="registerForm.controls['phone'].getError('pattern')">ENter Valid Egyption Number</p>
     </div>
-    <p *ngIf="errorMessage" class="alert alert-danger text-center">{{errorMessage}}</p>
-    <button [disabled]="!registerForm.valid"  *ngIf="!isloading" class="btn btn-danger text-white ms-auto d-block" type="submit">Sign Up</button>
-    <button *ngIf="isloading" class="btn btn-danger text-white ms-auto d-block" type="button"><i class="fa fa-spinner fa-spin"></i></button>
+    <div class="w-100 d-flex flex-column justify-content-center">
+      <p *ngIf="errorMessage" class="alert alert-danger text-center w-50 m-auto mt-3">{{errorMessage}}</p>
+      <button [disabled]="!registerForm.valid"  *ngIf="!isloading" class="btn btn-danger text-white m-auto w-50 my-3" type="submit">Sign Up</button>
+      <button *ngIf="isloading" class="btn btn-danger text-white m-auto w-50" type="button"><i class="fa fa-spinner fa-spin"></i></button>
+    </div>
   </form>
 </div>
 

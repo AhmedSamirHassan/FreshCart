@@ -1,3 +1,4 @@
+
 *{
   margin: 0;
   padding: 0;
@@ -21,4 +22,8 @@ ul li {
   z-index: 500;
   left: 0;
   right: 0;
+}
+
+.icons {
+  width: 35%;
 }

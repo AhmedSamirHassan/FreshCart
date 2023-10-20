@@ -1,16 +1,16 @@
 <div class="container p-5">
-  <h1 class="mb-5">My Wish List</h1>
+  <h1 class="mb-5 text-center">My Wish List</h1>
   <div *ngFor="let productwishList of wishListProducts" class="row shadow border mt-4">
-    <div class="col-md-2">
+    <div class="col-md-2 col-12-sm">
       <img class="w-100 my-2" [src]="productwishList.imageCover" alt="">
     </div>
-    <div class="col-md-10 d-flex justify-content-between align-items-center">
+    <div class="col-md-10 col-12-sm d-flex justify-content-between align-items-center">
       <div>
-        <h3>{{productwishList.title}}</h3>
-        <p class="fw-bold">{{productwishList.price | currency:'EGP '}}</p>
-        <button (click)="removeProductFromWishList(productwishList._id)" class="btn btn-outline-danger"><i class="fas fa-trash"></i> Remove</button>
+        <h3 class="col-12-sm">{{productwishList.title.split(" ").splice(0,2).join(" ")}}</h3>
+        <p class="fw-bold col-12-sm">{{productwishList.price | currency:'EGP '}}</p>
+        <button (click)="removeProductFromWishList(productwishList._id)" class="btn btn-outline-danger col-12-sm my-2"><i class="fas fa-trash"></i> Remove</button>
       </div>
-      <button (click)="addProductToCart(productwishList._id)" class="btn bg-main">Add to Cart</button>
+      <button (click)="addProductToCart(productwishList._id)" class="btn bg-main col-12-sm">Add to Cart</button>
     </div>
   </div>
   <h1 *ngIf="(errorMessage || wishListProducts.length == 0)&& !isLoading" class="alert alert-danger text-center">No Products in your WishList</h1>

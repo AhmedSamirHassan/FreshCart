@@ -1,5 +1,5 @@
-<div class="logIn my-3">
-  <h1>Sign In :</h1>
+<div class="logIn my-3 border rounded shadow p-3">
+  <h1 class="text-center">Sign In</h1>
   <form [formGroup]="logInForm" (ngSubmit)="logIn()">
 
     <label for="email" class="my-2">Email:</label>
@@ -13,12 +13,14 @@
     <input formControlName="password" id="Password" type="password" class="form-control mb-1" placeholder="Enter Your Password" value="">
     <div *ngIf="logInForm.controls['password'].errors && logInForm.controls['password'].touched" class="alert alert-danger">
       <p *ngIf="logInForm.controls['password'].getError('required')">Password is required</p>
-      <p *ngIf="logInForm.controls['password'].getError('pattern')">Minimum eight characters, at least one letter, one number and one special character</p>
+      <p *ngIf="logInForm.controls['password'].getError('pattern')">Minimum eight characters, at least one uppercase letter, one lowercase letter, one number and one special character</p>
     </div>
 
-    <p *ngIf="errorMessage" class="alert alert-danger text-center">{{errorMessage}}</p>
-    <button [disabled]="!logInForm.valid"  *ngIf="!isloading" class="btn btn-danger text-white ms-auto d-block" type="submit">Sign Up</button>
-    <button *ngIf="isloading" class="btn btn-danger text-white ms-auto d-block" type="button"><i class="fa fa-spinner fa-spin"></i></button>
+    <div class="w-100 d-flex flex-column justify-content-center">
+      <p *ngIf="errorMessage" class="alert alert-danger text-center m-auto w-50">{{errorMessage}}</p>
+      <button [disabled]="!logInForm.valid"  *ngIf="!isloading" class="btn btn-danger text-white m-auto w-50 my-4" type="submit">Sign In</button>
+      <button *ngIf="isloading" class="btn btn-danger text-white m-auto w-50" type="button"><i class="fa fa-spinner fa-spin"></i></button>
+    </div>
   </form>
 
   <div class="text-center">
