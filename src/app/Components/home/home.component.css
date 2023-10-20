@@ -1,2 +1,24 @@
 
+@media (max-width: 768px) {
+  .second img {
+    height: 150px;
+  }
+  .second p {
+    font-size: 10px;
+  }
+  .ffirst img {
+    height: 300px
+  }
+}
 
+@media (max-width: 600px) {
+  .second img {
+    height: 100px;
+  }
+  .second p {
+    font-size: 10px;
+  }
+  .ffirst img {
+    height: 300px
+  }
+}

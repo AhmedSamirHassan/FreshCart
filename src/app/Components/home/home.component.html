@@ -1,13 +1,13 @@
 <div class="row">
-  <div class="row g-0">
-    <div class="col-9">
+  <div class="row first g-0">
+    <div class="ffirst col-lg-9 col-sm-12">
       <owl-carousel-o [options]="customOptions">
         <ng-template carouselSlide><img height="450" src="../../../assets/images/slider-image-1.jpeg" alt=""></ng-template>
         <ng-template carouselSlide><img height="450" src="../../../assets/images/slider-image-2.jpeg" alt=""></ng-template>
         <ng-template carouselSlide><img height="450" src="../../../assets/images/slider-image-3.jpeg" alt=""></ng-template>
       </owl-carousel-o>
     </div>
-    <div class="col-3">
+    <div class="col-lg-3 col-sm-12">
       <div>
         <img class="w-100" height="225" src="../../../assets/images/blog-img-1.jpeg" alt="">
       </div>
@@ -16,7 +16,7 @@
       </div>
     </div>
   </div>
-  <div class="row my-4">
+  <div class="row second my-4">
       <owl-carousel-o [options]="CategoryOptions">
         <ng-container *ngFor="let category of caregories">
           <ng-template carouselSlide>
