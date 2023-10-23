@@ -2,14 +2,14 @@
   <h1 class="text-center">Sign In</h1>
   <form [formGroup]="logInForm" (ngSubmit)="logIn()">
 
-    <label for="email" class="my-2">Email:</label>
+    <label for="email" class="my-2 fw-bold">Email:</label>
     <input formControlName="email" id="email" type="email" class="form-control mb-1" placeholder="Enter Your Email" value="">
     <div *ngIf="logInForm.controls['email'].errors && logInForm.controls['email'].touched" class="alert alert-danger">
       <p *ngIf="logInForm.controls['email'].getError('required')">Email is required</p>
       <p *ngIf="logInForm.controls['email'].getError('pattern')">Enter Valid Email</p>
     </div>
 
-    <label for="Password" class="my-2">Password:</label>
+    <label for="Password" class="my-2 fw-bold">Password:</label>
     <input formControlName="password" id="Password" type="password" class="form-control mb-1" placeholder="Enter Your Password" value="">
     <div *ngIf="logInForm.controls['password'].errors && logInForm.controls['password'].touched" class="alert alert-danger">
       <p *ngIf="logInForm.controls['password'].getError('required')">Password is required</p>
@@ -23,7 +23,7 @@
     </div>
   </form>
 
-  <div class="text-center">
+  <div class="plus text-center">
     <p class="text-center">Don’t have an account? <a class="link-primary" routerLink="/register" routerLinkActive="active">Create an account</a></p>
     <a class="link-primary" routerLink="/forgetpassword" routerLinkActive="active">Forget your Password?</a>
   </div>

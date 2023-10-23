@@ -1,15 +1,27 @@
 <div class="row my-3">
   <form [formGroup]="shippingAddress" (ngSubmit)="checkOut(shippingAddress)">
-      <label for="details" class="my-2">Details</label>
+      <label for="details" class="my-2 fw-bold">Details</label>
       <input formControlName="details" name="details" type="text" class="form-control mb-1">
+      <div *ngIf="shippingAddress.controls['details'].errors && shippingAddress.controls['details'].touched" class="alert alert-danger">
+        <p *ngIf="shippingAddress.controls['details'].getError('required')">Details is required</p>
+      </div>
 
-      <label for="phone" class="my-2">Phone</label>
+      <label for="phone" class="my-2 fw-bold">Phone</label>
       <input formControlName="phone" name="phone" type="tel" class="form-control mb-1">
+      <div *ngIf="shippingAddress.controls['phone'].errors && shippingAddress.controls['phone'].touched" class="alert alert-danger">
+        <p *ngIf="shippingAddress.controls['phone'].getError('required')">phone is required</p>
+        <p *ngIf="shippingAddress.controls['phone'].getError('pattern')">Enter Valid Egyption Number</p>
+      </div>
 
-      <label for="city" class="my-2">City</label>
+      <label for="city" class="my-2 fw-bold">City</label>
       <input formControlName="city" name="city" type="text" class="form-control mb-1">
+      <div *ngIf="shippingAddress.controls['city'].errors && shippingAddress.controls['city'].touched" class="alert alert-danger">
+        <p *ngIf="shippingAddress.controls['city'].getError('required')">City is required and should be clear</p>
+      </div>
 
-      <button type="submit" class="btn btn-success mx-2 my-3">Order</button>
+      <div class="w-100 d-flex flex-column justify-content-center">
+        <button type="submit" class="btn btn-success my-3 w-50 m-auto">Order</button>
+      </div>
 
   </form>
 

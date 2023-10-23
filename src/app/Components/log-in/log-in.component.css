@@ -1,0 +1,6 @@
+
+@media (max-width: 768px) {
+  .plus p, a {
+    font-size: 12px;
+  }
+}
