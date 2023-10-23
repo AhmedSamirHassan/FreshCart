@@ -14,7 +14,7 @@
     <input formControlName="email" id="email" type="email" class="form-control mb-1" placeholder="Enter Your Email" value="">
     <div *ngIf="registerForm.controls['email'].errors && registerForm.controls['email'].touched" class="alert alert-danger">
       <p *ngIf="registerForm.controls['email'].getError('required')">Email is required</p>
-      <p *ngIf="registerForm.controls['email'].getError('email')">Enter Valid Email</p>
+      <p *ngIf="registerForm.controls['email'].getError('pattern')">Enter Valid Email</p>
     </div>
 
     <label for="Password" class="my-2 fw-bold">Password:</label>
